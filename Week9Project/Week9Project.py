@@ -23,7 +23,7 @@ imps = [imp1, imp2, imp3, imp4, imp5]
 
 # Initialize font
 
-font = pygame.font.SysFont("arial", 30)
+font = pygame.font.SysFont("arial", 32)
 
 # Title and icon of window
 
@@ -161,13 +161,13 @@ invaders = [Invader() for i in range(num_invaders)]
 # Game loop
 high_score = 0
 score = 0
-text = font.render('Score: {} | High Score: {}'.format(score, high_score), True, 'white')
+text = font.render('Score: {} | High Score: {}'.format(score, high_score), True, 'black')
 loop = True
 while loop:
 
     screen.fill((0,0,0))
     screen.blit(background, (0,0))
-    screen.blit(text, (S_WIDTH/3, S_HEIGHT/100))
+    screen.blit(text, (S_WIDTH/3.1, S_HEIGHT/100))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -193,7 +193,7 @@ while loop:
             score+=10
             if score > high_score:
                 high_score = score
-            text = font.render('Score: {} | High Score: {}'.format(score, high_score), True, 'white')
+            text = font.render('Score: {} | High Score: {}'.format(score, high_score), True, 'black')
         player_hit = invader.hit_confirm(player)
         if player_hit:
             for j in invaders:
@@ -201,7 +201,7 @@ while loop:
             player.reset()
             bullet.reset()
             score = 0
-            text = font.render('Score: {} | High Score: {}'.format(score, high_score), True, 'white')
+            text = font.render('Score: {} | High Score: {}'.format(score, high_score), True, 'black')
         invader.update()
     pygame.display.update()
 
