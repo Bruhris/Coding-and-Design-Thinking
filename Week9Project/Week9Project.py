@@ -27,13 +27,14 @@ font = pygame.font.SysFont("arial", 32)
 
 # Title and icon of window
 
-pygame.display.set_caption('Space Invaders')
+pygame.display.set_caption('Walmart Invaders')
 icon = pygame.image.load('Week9Project/img/icon.png')
 pygame.display.set_icon(icon)
 
 # Create the screen and set the background
 screen = pygame.display.set_mode((S_WIDTH,S_HEIGHT))
 background = pygame.image.load('Week9Project/img/background.jpg')
+background = pygame.transform.scale(background, (S_WIDTH,S_HEIGHT))
 
 class Player():
     img = pygame.image.load('Week9Project/img/player.png')
@@ -78,7 +79,7 @@ class Invader():
     img = pygame.transform.scale(img, (60,70))
     WIDTH = img.get_width()
     HEIGHT = img.get_height()
-    y_shift = S_HEIGHT * 0.05
+    y_shift = S_HEIGHT * 0.04
 
     def __init__(self):
         self.x = random.randint(0, S_WIDTH - self.WIDTH)
